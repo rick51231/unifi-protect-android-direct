@@ -1,0 +1,25 @@
+--- smali_classes2/com/ubnt/common/service/discovery/DiscoveryService.smali	2021-11-25 18:47:05.000000000 +0300
++++ DiscoveryService.smali	2021-11-25 18:48:11.000000000 +0300
+@@ -1083,12 +1083,6 @@
+     invoke-direct {v10}, Lcom/ubnt/common/service/discovery/Version1Packet;-><init>()V
+ 
+     .line 286
+-    invoke-virtual/range {p1 .. p1}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+-
+-    move-result-object v11
+-
+-    iput-object v11, v10, Lcom/ubnt/common/service/discovery/Version1Packet;->ipaddr:Ljava/lang/String;
+-
+     const/4 v11, 0x4
+ 
+     :goto_0
+@@ -1267,6 +1261,9 @@
+     invoke-direct {v13, v11, v12}, Lcom/ubnt/common/service/discovery/Version1Packet$IpInfo;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+ 
+     iput-object v13, v10, Lcom/ubnt/common/service/discovery/Version1Packet;->ipInfo:Lcom/ubnt/common/service/discovery/Version1Packet$IpInfo;
++
++    iput-object v12, v10, Lcom/ubnt/common/service/discovery/Version1Packet;->ipaddr:Ljava/lang/String;
++
+     :try_end_0
+     .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
+ 
