@@ -53,6 +53,8 @@ Models list:
 * UDM-PRO
 * UDM-PRO-SE
 * UDR
+* UDW
+* UDWPRO
 * UFP
 * UNKNOWN
 * UNVR4
