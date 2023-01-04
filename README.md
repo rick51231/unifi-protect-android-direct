@@ -14,6 +14,7 @@ In releases you can find apk version 1.4.7 with "IP Validation fix" and "Wifi fi
 * Install *protect-patched.apk* on device or via adb: `adb install protect-patched.apk`
 
 ## Patches
+Patches for different versions are stored in [patches](patches) folder. 
 
 ### IP Validation fix
 Forces protect to use ip from discovery packet, required to work with [Unifi Proxy](https://github.com/bahamas10/unifi-proxy). By default, protect uses source ip of discovery packet. The iOS version does require this fix.
