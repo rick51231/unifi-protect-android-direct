@@ -1,0 +1,97 @@
+--- DeviceDiscoveryService.smali.old	2023-01-04 18:33:16.000000000 +0300
++++ DeviceDiscoveryService.smali	2023-01-04 18:33:28.000000000 +0300
+@@ -803,7 +803,7 @@
+ .end method
+ 
+ .method public final registerListener(Lcom/ubnt/common/service/discovery/DeviceDiscoveryService$DeviceDiscoveryServiceListener;)V
+-    .locals 2
++    .locals 5
+ 
+     const-string v0, "listener"
+ 
+@@ -825,6 +825,85 @@
+     .line 128
+     monitor-exit v0
+ 
++    new-instance v4, Lcom/ubnt/common/service/discovery/Version1Packet;
++
++    invoke-direct {v4}, Lcom/ubnt/common/service/discovery/Version1Packet;-><init>()V
++
++    const-string v1, "UniFi Direct Connect"
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->hostname:Ljava/lang/String;
++
++    
++    const-string v1, "UCK-G2-PLUS"
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->platform:Ljava/lang/String;
++
++    
++    const-string v1, ""
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->essid:Ljava/lang/String;
++
++    
++    const/4 v1, 0x1
++
++    iput v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->wmode:I
++
++    
++    sget-object v1, Lcom/ubnt/common/service/discovery/Version1Packet$Protocol;->http:Lcom/ubnt/common/service/discovery/Version1Packet$Protocol;
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->webProto:Lcom/ubnt/common/service/discovery/Version1Packet$Protocol;
++
++    
++    const/16 v1, 0x1ba8
++
++    iput v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->webPort:I
++
++    
++    const-string v1, "unifi-protect.arm64.v99.99.0.0.0.0"
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->version:Ljava/lang/String;
++
++    
++    new-instance v1, Lcom/ubnt/common/service/discovery/Version1Packet$IpInfo;
++
++    const-string v2, "001122334455"
++
++    const-string v3, "192.168.1.2"
++
++    invoke-direct {v1, v2, v3}, Lcom/ubnt/common/service/discovery/Version1Packet$IpInfo;-><init>(Ljava/lang/String;Ljava/lang/String;)V
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->ipInfo:Lcom/ubnt/common/service/discovery/Version1Packet$IpInfo;
++
++    
++    const-string v1, "192.168.1.2"
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->ipaddr:Ljava/lang/String;
++
++    
++    const-string v1, "001122334455"
++
++    iput-object v1, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->hwaddr:Ljava/lang/String;
++
++
++    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
++
++    move-result-wide v2
++
++    iput-wide v2, v4, Lcom/ubnt/common/service/discovery/Version1Packet;->lastSeen:J
++
++
++    #sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
++
++    #invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
++
++    #move-result-object v2
++
++    #invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
++
++    invoke-direct {p0, v4}, Lcom/ubnt/common/service/discovery/DeviceDiscoveryService;->onDeviceUpdated(Lcom/ubnt/common/service/discovery/Version1Packet;)V
++    
++
++
+     return-void
+ 
+     :catchall_0

@@ -1,6 +1,6 @@
 # UniFi Protect Android patched
 This repository contains several patches that allow you to connect to your setup externally (e.g. VPN or VLAN) without using the unifi cloud.
-In releases you can find apk version 1.4.7 with "IP Validation fix" and "Wifi fix" patches.
+In releases you can find apk versions with "IP Validation fix" and "Wifi fix" patches.
 
 ## Requerments
 * java (tested on 1.8.0_24)
@@ -9,6 +9,7 @@ In releases you can find apk version 1.4.7 with "IP Validation fix" and "Wifi fi
 
 ## Supported versions
 * 1.4.7
+* 1.10.1
 
 ## Usage
 * Download UniFi Protect apk (tested with 1.4.7)
@@ -24,14 +25,14 @@ Patches for different versions are stored in [patches](patches) folder.
 Forces protect to use ip from discovery packet, required to work with [Unifi Proxy](https://github.com/bahamas10/unifi-proxy). By default, protect uses source ip of discovery packet. The iOS version does require this fix.
 
 ##### Run
-`patch out/smali_classes2/com/ubnt/common/service/discovery/DiscoveryService.smali ip_validation.patch`
+`patch out/smali_classes*/com/ubnt/common/service/discovery/DiscoveryService.smali ip_validation.patch`
 
 
 
 ### Wifi fix
 Disables wifi connectivity check and allows you to connect via VPN over cellular connection. Don't use it without VPN, because app uses unencrypted connection by default.
 ##### Run
-`patch out/smali_classes3/com/ubnt/util/NetworkUtils.smali wifi.patch`
+`patch out/smali_classes*/com/ubnt/util/NetworkUtils.smali wifi.patch`
 
 ### Direct connection fix
 Adds you protect local ip to discovered devices list. For now, i don't know which params (except IP) are requried. In folder *packet* you can find sources which were used to create smali code.
@@ -42,7 +43,7 @@ Edit *direct_connection.patch*:
 * Change *UCK-G2-PLUS* to your console model (see list below)
 
 ##### Run
-`patch out/smali_classes2/com/ubnt/common/service/discovery/DeviceDiscoveryService.smali direct_connection.patch`
+`patch out/smali_classes*/com/ubnt/common/service/discovery/DeviceDiscoveryService.smali direct_connection.patch`
 
 Models list:
 * Boston
