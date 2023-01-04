@@ -5,6 +5,10 @@ In releases you can find apk version 1.4.7 with "IP Validation fix" and "Wifi fi
 ## Requerments
 * java (tested on 1.8.0_24)
 * wget/patch (should come with linux/macos)
+* Android SDK (adb, zipalign, apksigner)
+
+## Supported versions
+* 1.4.7
 
 ## Usage
 * Download UniFi Protect apk (tested with 1.4.7)
