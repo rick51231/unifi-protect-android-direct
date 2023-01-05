@@ -5,14 +5,14 @@ In releases you can find apk versions with "IP Validation fix" and "Wifi fix" pa
 ## Requerments
 * java (tested on 1.8.0_24)
 * wget/patch (should come with linux/macos)
-* Android SDK (adb, zipalign, apksigner)
+* zipalign (via package manager `apt-get install zipalign` for Debian/Ubuntu or use [Android BuildTools](https://androidsdkmanager.azurewebsites.net/Buildtools))
 
 ## Supported versions
 * 1.4.7
 * 1.10.1
 
 ## Usage
-* Download UniFi Protect apk (tested with 1.4.7)
+* Download UniFi Protect apk (any supported version)
 * Unpack apk: `./unpack_apk.sh <apk name>`
 * Apply patches (see below)
 * Build apk: `./build_apk.sh` 
